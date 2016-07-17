@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	.warning {
+		color: orange;
+	}
+
+	.error {
+		color: red;
+		border-color: red;
+	}
+	.warningTxt {
+		color: orange;
+	}
+
+	.errorTxt {
+		color: red;
+	}
+	input.error[type=checkbox] {
+		background-color: red;
+	}
+</style>
+	<script src="../src/abstract-validator.js"></script>
+	<script src="../src/abstract-number-condition-validator.js"></script>
+	<script src="../src/validator-fabric.js"></script>
+	<script src="../src/form-validation.js"></script>
+	<script src="../src/validators/checked-validator.js"></script>
+	<script src="../src/validators/email-validator.js"></script>
+	<script src="../src/validators/equal-validator.js"></script>
+	<script src="../src/validators/length-validator.js"></script>
+	<script src="../src/validators/max-length-validator.js"></script>
+	<script src="../src/validators/min-length-validator.js"></script>
+	<script src="../src/validators/quantity-validator.js"></script>
+	<script src="../src/validators/max-validator.js"></script>
+	<script src="../src/validators/min-validator.js"></script>
+	<script src="../src/validators/number-validator.js"></script>
+	<script src="../src/validators/int-validator.js"></script>
+
+	<script src="../src/validators/require-validator.js"></script>
+
+</head>
+<body>
+	<div>
+		<h1>
+			d;'fld;alf;
+		</h1>
+		<div>alloha</div>
+		<form name="form_1" data-need-validate=1>
+			<input name=field1 data-validate="require  minlength_4 eq_field2" value="abc" />
+			<input name=field2 data-validate="require email" data-require-error-text="we need more minerals" />
+			<input name=field3 data-validate="minerals"/>
+			<input type="checkbox" data-validate="checked"/>  -- Check IT!
+			<input type="submit" value="Go" >
+			<div class="sub">Submit Me</div>
+		</form>
+		<form name="form_2" data-need-validate="1">
+			<input data-validate="require">
+			<input type="submit" value="Go">
+		</form>
+	</div>
+	<script src="minerals-validator.js"></script>
+	<script>
+		let m = new FormValidation( {
+			autoApply: true,
+			submitElementSelector: '.sub',
+			validators: [MineralsValidator]
+		} );
+	</script>
+</body>
+</html>
