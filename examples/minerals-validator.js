@@ -6,7 +6,7 @@ class MineralsValidator extends AbstractValidator {
 
 
 	get defaultErrorTextTpl() {
-		return 'Need more minerals';
+		return 'Value must be `minerals`';
 	}
 
 	static test(value) {

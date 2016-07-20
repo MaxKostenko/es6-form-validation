@@ -1,4 +1,6 @@
-class MaxValidator extends AbstractNumberConditionValidator {
+import AbstractNumberConditionValidator from './abstract-number-condition-validator';
+
+export default class MaxValidator extends AbstractNumberConditionValidator {
 
 	static get abbr() {
 		return 'max';

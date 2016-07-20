@@ -1,4 +1,6 @@
-class MaxLengthValidator extends AbstractNumberConditionValidator {
+import AbstractNumberConditionValidator from './abstract-number-condition-validator';
+
+export default class MaxLengthValidator extends AbstractNumberConditionValidator {
 
 	static get abbr() {
 		return 'maxlength';

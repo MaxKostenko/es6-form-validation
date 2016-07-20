@@ -1,4 +1,4 @@
-class ValidatorFabric {
+export default class ValidatorFabric {
 
 	attach( ValidatorClass ) {
 		this.validators[ValidatorClass.abbr] = ValidatorClass;

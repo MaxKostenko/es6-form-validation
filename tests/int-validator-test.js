@@ -1,7 +1,8 @@
 function intValidatorTest() {
 	
 	function integerTest(value, isValid) {
-		let validator = new IntValidator();
+			let formValidation = new FormValidation;
+			let validator = new formValidation.validation.validators['int'];
 		it("Value `" + value + "` is" + ( isValid ? '' : 'n\'t' ) + " integer", function() {
 			chai.assert.equal(validator.isValid(value), isValid);
 		});

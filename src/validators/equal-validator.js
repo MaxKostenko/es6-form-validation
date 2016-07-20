@@ -1,4 +1,6 @@
-class EqualValidator extends AbstractValidator {
+import AbstractValidator from './abstract-validator';
+
+export default class EqualValidator extends AbstractValidator {
 
 	static get abbr() {
 		return 'eq';

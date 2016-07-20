@@ -1,7 +1,8 @@
 function requireValidatorTest() {
 	
 	function requireTest(value, isValid) {
-		let validator = new RequireValidator();
+		let formValidation = new FormValidation;
+		let validator = new formValidation.validation.validators['require'];
 		it("This value `" + value + "` is " + ( isValid ? 'not' : '' ) + " empty", function() {
 			chai.assert.equal(validator.isValid(value), isValid);
 		});

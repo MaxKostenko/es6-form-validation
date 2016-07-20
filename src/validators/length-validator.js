@@ -1,4 +1,6 @@
-class LengthValidator extends AbstractNumberConditionValidator {
+import AbstractNumberConditionValidator from './abstract-number-condition-validator';
+
+export default class LengthValidator extends AbstractNumberConditionValidator {
 
 	static get abbr() {
 		return 'length';

@@ -1,4 +1,18 @@
-class FormValidation {
+import RequireValidator from './validators/require-validator';
+import LengthValidator from './validators/length-validator';
+import MaxLengthValidator from './validators/max-length-validator';
+import MinLengthValidator from './validators/min-length-validator';
+import QuantityValidator from './validators/quantity-validator';
+import MaxValidator from './validators/max-validator';
+import MinValidator from './validators/min-validator';
+import EmailValidator from './validators/email-validator';
+import EqualValidator from './validators/equal-validator';
+import CheckedValidator from './validators/checked-validator';
+import NumberValidator from './validators/number-validator';
+import IntValidator from './validators/int-validator';
+import ValidatorFabric from './validator-fabric';
+
+export default class FormValidation {
 
 	get defaults() {
 		return {
@@ -186,3 +200,5 @@ class FormValidation {
 	}
 
 }
+
+module.exports = FormValidation;

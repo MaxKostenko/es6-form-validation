@@ -1,7 +1,8 @@
 function lengthValidatorTest() {
 	
 	function lengthTest(value, condition, isValid) {
-		let validator = new LengthValidator();
+		let formValidation = new FormValidation;
+		let validator = new formValidation.validation.validators['length'];
 		validator.condition = condition;
 		it("Value `" + value + "` should be " + ( isValid ? '' : 'in' ) + "valid for condition length=" + condition, function() {
 			chai.assert.equal(validator.isValid(value), isValid);

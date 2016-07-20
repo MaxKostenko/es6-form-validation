@@ -1,5 +1,6 @@
 function emailValidatorTest() {
-	let validator = new EmailValidator();
+	let formValidation = new FormValidation;
+	let validator = new formValidation.validation.validators['email'];
 	function emailTest(email, isValid) {
 		it("Email `" + email + "` should be " + ( isValid ? '' : 'in' ) + "valid ", function() {
 			chai.assert.equal(validator.isValid(email), isValid);

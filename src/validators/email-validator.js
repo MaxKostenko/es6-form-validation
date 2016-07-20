@@ -1,4 +1,6 @@
-class EmailValidator extends AbstractValidator {
+import AbstractValidator from './abstract-validator';
+
+export default class EmailValidator extends AbstractValidator {
 
 	static get abbr() {
 		return 'email';

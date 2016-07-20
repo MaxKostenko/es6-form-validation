@@ -1,4 +1,4 @@
-class AbstractValidator {
+export default class AbstractValidator {
 
 	set condition(condition) {
 		this[Symbol.for('condition')] = this.prepareCondition(condition);
@@ -55,3 +55,4 @@ class AbstractValidator {
 		return this.constructor.test(val, this.condition);
 	}
 }
+module.exports = AbstractValidator;

@@ -1,4 +1,6 @@
-class MinValidator extends AbstractNumberConditionValidator {
+import AbstractNumberConditionValidator from './abstract-number-condition-validator';
+
+export default class MinValidator extends AbstractNumberConditionValidator {
 
 	static get abbr() {
 		return 'min';

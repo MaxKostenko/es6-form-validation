@@ -1,4 +1,6 @@
-class QuantityValidator extends AbstractValidator { //целое положительное
+import AbstractValidator from './abstract-validator';
+
+export default class QuantityValidator extends AbstractValidator {
 
 	static get abbr() {
 		return 'quantity';

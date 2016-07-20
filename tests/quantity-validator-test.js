@@ -1,7 +1,8 @@
 function quantityValidatorTest() {
 	
 	function quantityTest(value, isValid) {
-		let validator = new QuantityValidator();
+		let formValidation = new FormValidation;
+		let validator = new formValidation.validation.validators['quantity'];
 		it("Quantity `" + value + "` should be " + ( isValid ? '' : 'in' ) + "valid", function() {
 			chai.assert.equal(validator.isValid(value), isValid);
 		});

@@ -1,5 +1,7 @@
+import AbstractValidator from './abstract-validator';
+
 //A field is any number decimal or non-decimal
-class NumberValidator extends AbstractValidator {
+export default class NumberValidator extends AbstractValidator {
 
 	static get abbr() {
 		return 'number';

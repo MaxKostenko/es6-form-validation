@@ -1,7 +1,8 @@
 function maxValidatorTest() {
 	
 	function quantityTest(value, condition, isValid) {
-		let validator = new MaxValidator();
+		let formValidation = new FormValidation;
+		let validator = new formValidation.validation.validators['max'];
 		validator.condition = condition;
 		it("Value `" + value + "` should be " + ( isValid ? '' : 'in' ) + "valid for condition quantity <= " + condition, function() {
 			chai.assert.equal(validator.isValid(value), isValid);

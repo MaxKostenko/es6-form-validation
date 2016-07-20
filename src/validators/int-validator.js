@@ -1,4 +1,6 @@
-class IntValidator extends AbstractValidator {
+import AbstractValidator from './abstract-validator';
+
+export default class IntValidator extends AbstractValidator {
 
 	static get abbr() {
 		return 'int';
