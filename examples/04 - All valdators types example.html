@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" href="./styles.css" rel="stylesheet" />
+	<script src="../dist/form-validation.js"></script>
+</head>
+<body>
+	<div>
+		<h1>
+			Field value validation
+		</h1>
+		<form id="form" name="form_1" data-need-validate="1" >
+		<div>
+			<label>Email</label>
+			<input name="email" data-validate="require email" value="@notemail.com" />
+		</div>
+		<div>
+			<label>Password required</label>
+			<input name="password" type="password" data-validate="require" />
+		</div>
+		<div>
+			<label>Repeat password</label>
+			<input name="repassword" type="password" data-validate="eq_password" value="12345" />
+		</div>
+		<div>
+			<label>Number</label>
+			<input name="number" data-validate="number" value="rtre" />
+		</div>
+		<div>
+			<label>Max</label>
+			<input name="max" data-validate="max_10" value="40" />
+		</div>
+		<div>
+			<label>Min</label>
+			<input name="min" data-validate="min_100" value="12" />
+		</div>
+		<div>
+			<label>Integer</label>
+			<input name="int" data-validate="int" value="12.5" />
+		</div>
+		<div>
+			<label>Quantity</label>
+			<input name="quantity" data-validate="quantity" value="-5" />
+		</div>
+
+		<div>
+			<label>Length</label>
+			<input name="length" data-validate="length_6" value="6 symbols should be here" />
+		</div>
+		<div>
+			<label>Max Length</label>
+			<input name="maxlength" data-validate="maxlength_6" value="should be less than 6 symbols" />
+		</div>
+		<div>
+			<label>Min Length</label>
+			<input name="minlength" data-validate="minlength_36" value="should be more than 36 symbols" />
+		</div>
+		<div>
+			<label>Must be checked</label>
+			<input name="terms" type="checkbox" data-validate="checked"/>
+		</div>
+
+		
+		<div>
+			<input type="submit" value="Submit" /><input type="button" value="Set valid values" onclick="setForm()"/><input type="reset" value="Reset form"/>
+		</div>
+		</form>
+	</div>
+	<script>
+		new FormValidation({
+			afterValidate: function() {
+				alert('Form is valid!');
+				return false;
+			}
+		});
+		
+		function setForm() {
+			var validValues = {
+				email: 'email@example.com',
+				password: 'some password',
+				repassword: 'some password',
+				number: 12.34,
+				max: 9,
+				min: 112,
+				int: -8,
+				quantity: 3,
+				length: 'abcdef',
+				maxlength: 'abc',
+				minlength: '0123456789012345678901234567890123456789'
+			}
+			var form = document.getElementById('form');
+			for( key in validValues ) {
+				form[key].value = validValues[key];
+			}
+			form.terms.checked = true;
+		}
+	</script>
+</body>
+</html>
+

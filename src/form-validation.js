@@ -18,22 +18,24 @@ export default class FormValidation {
 		return {
 			errorInputClassName: 'error',
 			errorTextClassName: 'errorTxt',
-			warningInputClassName: 'warning',
-			warningTextClassName: 'warningTxt',
 			autoApplyFormAttributeName: 'data-need-validate',
-			autoApply: false,
+			autoApply: true,
 			validationAttributeName: 'data-validate',
 			submitElementSelector: false,
 			defaultBrowserValidation: false, // switch off browser validation
-			autoTrim: true, // Trim field values before validation
+			autoTrim: false, // Trim field values before validation
 			errors: { //Default error text
-				require: 'This information is required.',
 				email: 'Please enter a valid email address.',
-				quantity: 'Use numbers only.',
+				require: 'This information is required.',
 				minlength: 'Value is too short (minimum is {{cond}} characters).',
 				maxlength: 'Value is too long (maximum is {{cond}} characters).',
 				min: 'Value is too small (minimum is {{cond}}).',
-				max: 'Value is too big (maximum is {{cond}}).'
+				max: 'Value is too big (maximum is {{cond}}).',
+				quantity: 'Use digits only.',
+				number: 'Value must be set to a number',
+				int: 'Value must be an integer',
+				length: 'Value must content {{cond}} characters',
+				eq: 'Value must match {{cond}} field'
 			},
 
 			// callbacks
@@ -72,11 +74,14 @@ export default class FormValidation {
 		}
 	}
 
-	set settings( value ) {
+	set settings( settings ) {
 		if (this[Symbol.for('settings')] == undefined) {
 			this[Symbol.for('settings')] = this.defaults;
 		}
-		Object.assign(this[Symbol.for('settings')], value );
+		if( settings.errors ) {
+			settings.errors = Object.assign( this.defaults.errors, settings.errors );
+		}
+		Object.assign(this[Symbol.for('settings')], settings );
 	}
 
 	get settings() {

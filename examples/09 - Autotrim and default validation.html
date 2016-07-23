@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" href="./styles.css" rel="stylesheet" />
+	<script src="../dist/form-validation.js"></script>
+</head>
+<body>
+	<div>
+		<h1>
+			Values will be trimed automatically befor validation
+		</h1>
+		<p>Default validation can be enabled if you want</p>
+		<form data-need-validate="1">
+		<div>
+			<label>Email</label>
+			<input name="email" type="email" data-validate="require email" value="email@example.com"  />
+		</div>
+		<div>
+			<label>Password</label>
+			<input type="password" data-validate="require" />
+		</div>
+		<div>
+			<input type="submit" value="login" />
+		</div>
+		</form>
+	</div>
+	<script>
+		var validation = new FormValidation({
+			defaultBrowserValidation: true,
+			autoTrim: true,
+			afterValidate: function() {
+				alert('Form is valid!');
+				return false;
+			}
+		});
+	</script>
+</body>
+</html>
+

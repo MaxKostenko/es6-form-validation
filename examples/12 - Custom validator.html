@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" href="./styles.css" rel="stylesheet" />
+	<script src="../dist/form-validation.js"></script>
+</head>
+<body>
+	<div>
+		<h1>
+			Custom validator
+		</h1>
+		<p>You can create custom validator that must be extended from AbstractValidator or AbstractNumberConditionValidator. </p>
+		<form data-need-validate="1">
+		<div>
+			<label>Email</label>
+			<input name="email" type="email" data-validate="require email" value="test"   />
+		</div>
+		<div>
+			<label>Full name</label>
+			<input data-validate="require becustom" value="Joe Doe" />
+		</div>
+		<div>
+			<input type="submit" value="login" />
+		</div>
+		</form>
+	</div>
+	<script>
+		class CustomValidator extends AbstractValidator {
+
+			static get abbr() {
+				return 'becustom';
+			}
+
+
+			get defaultErrorTextTpl() {
+				return 'Value mustn\'t be `{{val}}`';
+			}
+
+			static test(value) {
+				return 'Joe Doe' != value;
+			}
+		}
+	
+		var validation = new FormValidation({
+			validators: [CustomValidator],
+			afterValidate: function() {
+				alert('All it ok');
+				return false;
+			}
+		});
+	</script>
+</body>
+</html>
+

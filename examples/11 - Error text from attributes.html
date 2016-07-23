@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" href="./styles.css" rel="stylesheet" />
+	<script src="../dist/form-validation.js"></script>
+</head>
+<body>
+	<div>
+		<h1>
+			Custom error text from attributes.
+		</h1>
+		<p>You can use element attributes 'data-{validator.abbr}-error-text' for setting custom error text</p>
+		<form data-need-validate="1">
+		<div>
+			<label>Email</label>
+			<input name="email" type="email" data-validate="require email" data-email-error-text="Custom email error ~{{val}}~" value="test"   />
+		</div>
+		<div>
+			<label>Full name</label>
+			<input data-validate="require minlength_6" data-minlength-error-text="Custom minlength error ~{{val}}~" value="name" />
+		</div>
+		<div>
+			<input type="submit" value="login" />
+		</div>
+		</form>
+	</div>
+	<script>
+		var validation = new FormValidation({
+			afterValidate: function() {
+				alert('All it ok');
+				return false;
+			}
+		});
+	</script>
+</body>
+</html>
+

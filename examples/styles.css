@@ -1,0 +1,23 @@
+.warning {
+	color: orange;
+	border-color: orange;
+}
+
+.error {
+	color: red;
+	border-color: red;
+}
+.warningTxt {
+	color: orange;
+}
+
+.errorTxt {
+	color: red;
+}
+input.error[type=checkbox] {
+	background-color: red;
+}
+
+label {
+	display: block;
+}

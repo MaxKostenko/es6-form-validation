@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" href="./styles.css" rel="stylesheet" />
+	<script src="../dist/form-validation.js"></script>
+</head>
+<body>
+	<div>
+		<h1>
+			Custom error text.
+		</h1>
+		<p>Error message text can include palceholders {{val}} for current value and {{cond}} for validator condition</p>
+		<form data-need-validate="1">
+		<div>
+			<label>Email</label>
+			<input name="email" type="email" data-validate="require email" value=""  />
+		</div>
+		<div>
+			<label>Full name</label>
+			<input data-validate="require minlength_6" value="name" />
+		</div>
+		<div>
+			<input type="submit" value="login" />
+		</div>
+		</form>
+	</div>
+	<script>
+		var validation = new FormValidation({
+			errors: {
+				minlength: 'Value `{{val}}` incorect. Field must be at least {{cond}} characters'
+			},
+			afterValidate: function() {
+				alert('All it ok');
+				return false;
+			}
+		});
+	</script>
+</body>
+</html>
+

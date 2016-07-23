@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" href="./styles.css" rel="stylesheet" />
+	<script src="../dist/form-validation.js"></script>
+</head>
+<body>
+	<div>
+		<h1>
+			You can use alternative submit element
+		</h1>
+		<p>
+			You can use any CSS selector for it
+		</p>
+		<form name="form_1" data-need-validate="1" >
+		<div>
+			<label>Email</label>
+			<input name="email" data-validate="require email" />
+		</div>
+		<div>
+			<label>Password</label>
+			<input name="password" type="password" data-validate="require" />
+		</div>
+		<div>
+			<a class="sub" href="#">I am Submit</a>
+		</div>
+		</form>
+	</div>
+	<script>
+		new FormValidation({
+			submitElementSelector: '.sub'
+		});
+	</script>
+</body>
+</html>
+

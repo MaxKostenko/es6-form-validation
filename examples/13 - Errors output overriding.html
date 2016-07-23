@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" href="./styles.css" rel="stylesheet" />
+	<script src="../dist/form-validation.js"></script>
+</head>
+<body>
+	<div>
+		<h1>
+			Errors output overriding
+		</h1>
+		<p>You can override standard way of errors displaying </p>
+		<form data-need-validate="1">
+		<div>
+			<label>Email</label>
+			<input name="email" type="email" data-validate="require email" value="test"   />
+			<i class="errorTxt"></i>
+		</div>
+		<div>
+			<label>Full name</label>
+			<input data-validate="require" value="" />
+			<i class="errorTxt"></i>
+		</div>
+		<div>
+			<input type="submit" value="login" />
+		</div>
+		</form>
+	</div>
+	<script>
+		var validation = new FormValidation({
+			afterValidate: function() {
+				alert('All it ok');
+				return false;
+			},
+			//method is searching error block and return it
+			getErrorTextBlock: function(field) {
+				let element = field.nextElementSibling;
+				if( element && element.classList.contains('errorTxt') ) {
+					return element;
+				}
+				return null;
+			},
+			//setup error to error block
+			setError: function(field, text) {
+				field.classList.add('error');
+				let errorBlock = this.getErrorTextBlock(field);
+				if( errorBlock ) {
+					errorBlock.innerHTML = text;
+				}
+			},
+			//clear error block
+			clearError: function(field) {
+				field.classList.remove('error');
+				let errorBlock = this.getErrorTextBlock(field);
+				if( errorBlock ) {
+					errorBlock.innerHTML = '';
+				}
+			}
+		});
+	</script>
+</body>
+</html>
+

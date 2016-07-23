@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" href="./styles.css" rel="stylesheet" />
+	<script src="../dist/form-validation.js"></script>
+</head>
+<body>
+	<div>
+		<h1>
+			Ajax Form and AfterValidate event
+		</h1>
+		<form id="form_1" data-need-validate="1" >
+		<div>
+			<label>Email</label>
+			<input name="email" data-validate="require email" />
+		</div>
+		<div>
+			<label>Password</label>
+			<input name="password" type="password" data-validate="require" />
+		</div>
+		<div>
+			<input type="submit" value="login" />
+		</div>
+		</form>
+	</div>
+	<script>
+		let validator = new FormValidation({
+			afterValidate: function() {
+				alert('There shuold be async call');
+				/*
+				let form = document.getElementById('form_1')
+				$.get( '-your-url-', function( data ) {
+					if( data.success ) {
+						document.location = 'other-url';
+					} else {
+						//if server return errors
+						if(data.errors) {
+						
+							//we can show error text in this way
+							for( var key in data.errors ) {
+								validator.setError(form[key], data.errors[key]);
+							}
+						}
+					}
+				} );
+				*/
+				return false;
+			}
+		});
+	</script>
+</body>
+</html>
+
