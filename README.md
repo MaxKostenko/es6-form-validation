@@ -1,6 +1,23 @@
 # es6-form-validation
 Form Validation
 
+###Validators:
+
+|Abbr|Description|Allow empty|Example|
+|---|---|---|---|
+|`require`|Field isn't empty|false|require|
+|`email`|Field is email|true|email|
+|`length_{condition}`|Value length equal to condition|true|length_4|
+|`minlength_{condition}`|Value length must be equal or more then contition|true|minlength_4|
+|`maxlength_{condition}`|Value length must be equal or less then contition |true|maxlength_34|
+|`number`|Any valid number|true|number|
+|`min_{condition}`|Value must be more or equal to condition|true|min_4|
+|`max_{condition}`|Value must be less or equal to condition|true|max_4|
+|`int`|Value must be integer|true|int|
+|`quantity`|Value must be positive integer|false|quantity|
+|`checked`|Field must be checked||checked|
+|`eq_{condition}`|Field with name from condition must have same value||eq_password|
+
 ###Examples:
 
 1. Basic example
