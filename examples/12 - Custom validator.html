@@ -20,6 +20,18 @@
 			<input data-validate="require becustom" value="Joe Doe" />
 		</div>
 		<div>
+			<label>Old Password</label>
+			<input name="password" type="password" data-validate="reqiffill_new-password" />
+		</div>
+		<div>
+			<label>New Password</label>
+			<input name="new-password" type="password" data-validate="eq_re-password" />
+		</div>
+		<div>
+			<label>Repeat New Password</label>
+			<input name="re-password" type="password" data-validate=""  />
+		</div>
+		<div>
 			<input type="submit" value="login" />
 		</div>
 		</form>
@@ -40,9 +52,29 @@
 				return 'Joe Doe' != value;
 			}
 		}
+		
+		class ReqIfFillValidator extends AbstractValidator {
+
+			static get abbr() {
+				return 'reqiffill';
+			}
+
+
+			get defaultErrorTextTpl() {
+				return 'You should fill old password for reseting';
+			}
+
+			isValid(val, field) {
+				if( field && field.form && field.form.elements && this.condition ) {
+					let fieldVal = field.form.elements[this.condition].value;
+					return val.length || !fieldVal;
+				}
+				return true;
+			}
+		}
 	
 		var validation = new FormValidation({
-			validators: [CustomValidator],
+			validators: [CustomValidator, ReqIfFillValidator],
 			afterValidate: function() {
 				alert('All it ok');
 				return false;
